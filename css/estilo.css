@@ -1,0 +1,409 @@
+ /*Tenemos que formatear las margenes externas que vienen por defecto en las hojas de 
+estilo, para esto se usa un selector universal==> * <--*/
+
+* {
+    /*dejamos margen externas en 0*/
+    margin: 0;
+    /*margenes internas en 0*/
+    padding: 0;
+    /*cuando se trabaja con listas el css las pone con un estilo predeterminado, también se le quita*/
+    list-style: none;
+    /*que todas las cajas tengan una familia fuente*/
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+
+#chat {
+    /* valor fixed permite tomar una caja y pegarla a la pantalla*/
+    position: fixed;
+    /*ancho*/
+    width: 240px;
+    /*alto*/
+    height: 40px;
+    /*abajo:posición de la caja en horizontal, siendo 0 la parte derecha inferior*/
+    bottom: 0;
+    background: rgba(27, 133, 133, 0.911);
+    /*posición de la caja en vertical, siendo 0 la parte izquierda superior*/
+    right: 17px;
+    /*NOTA: Por defecto todas las cajas vienen en el indice 0. Por ejemplo cuando navegamos un sitio web 
+    en el navegador Firefox siempre y cuando en este navegador abra el inspector de elementos y 
+    active la propiedad vista 3D, esta vista 3D permite ver la posición de las cajas
+    en su profundida, en su índice Z mientras las cajas están en el índice cero.
+    Ahora yo cómo hago para sacar una caja del índice cero a un índice superior.
+    Simplemente agregamos el valor 1 o el valor 2 o el valor 3 o el valor que quiera.
+    Al actualizar ya veremos que la caja esta por encima del footer dependiendo del valor dado*/
+    /*propiedad que permite manipular las cajas en ejes de profundidad (en terminos simples es como extraer un texto al frente de 
+    algun otro elemento en un word). cuando el valor esta en positivo indica que se sobrepondra a otros*/
+    z-index: 1;
+    /*color de texto*/
+    color: white;
+    /*alinear el texto al centro*/
+    text-align: center;
+    /*alinear el texto verticalmente 40 de acuerdo a la altura de la caja*/
+    line-height: 40px;
+    /*fuente de google*/
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /*tamaño de fuente*/
+    font-size: 20px;
+    /*borde solo en las esquinas superiores(en la esq superior izq y derecha)*/
+    border-radius: 20px 20px 0 0;
+    /*cursor propiedad para indicar al usuario que se trata de un boton y con el valor pointer cambiamos el cursor por una manito xd*/
+    cursor: pointer;
+}
+
+header {
+    /*para centrar la caja principal se debe dar una ubicación*/
+    /*para las cajas principales se utiliza position: relative*/
+    position: relative;
+    margin: 20px auto;
+    /*para centrar*/
+    /*cuando se trabaja en position: relative las margenes se organizan en dos coordenadas ==>margin: top left;
+margin: 0 0;*/
+    /*ancho*/
+    width: 1000px;
+    /*alto*/
+    height: 120px;
+    /*color*/
+    /*background: #444;*/
+}
+
+/*la position para las cajas internas es absolute ya que esta permite ubicar una caja interna dentro
+de una caja principal y permite manejar todas las coordenadas */
+/*seleccion a traves de id*/
+#logo {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    bottom: 0;
+    right: 0;
+    width: 200px;
+    height: 60px;
+    /*background: #ccc;*/
+    font-family: 'Metal Mania', cursive;
+    /*tamaño*/
+    font-size: 40px;
+    /*ubicación*/
+    text-align: center;
+    /*para alinearlo a nivel vertical, se alinea a la altura de la caja y ubica el
+     texto a la mitad del valor asignado */
+    line-height: 60px;
+
+}
+
+/*seleccion a traves de clase*/
+.redes {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    background: rgb(112, 13, 143);
+    border-radius: 100%;
+    /*propiedades de texto*/
+    text-align: center;
+    line-height: 42px;
+    /*color del texto*/
+    color: white;
+
+}
+
+/*seleccion a traves de id*/
+#icono1 {
+    background: blue;
+    top: 42px;
+    right: 120px;
+}
+
+#icono2 {
+    background: red;
+    top: 42px;
+    right: 70px;
+}
+
+#icono3 {
+    background: green;
+    top: 42px;
+    right: 19px;
+    
+}
+
+nav {
+    position: relative;
+    margin: auto;
+    width: 1000px;
+    height: 48px;
+    background: #aaa;
+}
+
+/*seleccion a traves de clase*/
+.botones {
+    /*hace flotar el listado. lo hacemos iniciar de izquierda a derecha left*/
+    float: left;
+    width: 196px;
+    /*ancho*/
+    margin: 0px 2px;
+    height: 48px;
+    /*alto*/
+    background: rgb(101, 14, 112);
+    /*propiedades de texto*/
+    font-family: 'Metal Mania', cursive;
+    color: white;
+    text-align: center;
+    line-height: 48px;
+}
+
+/*llamamos al hover (es una seudoclase, cuando se pase el mouse por encima del botón pase algo) */
+/*que el botón cambie de color cuando se pasa el mouse por encima*/
+a .botones:hover {
+    background: rgba(160, 0, 255, .4);
+}
+
+/*que el botón cambie de color cuando se le de click*/
+a .botones:active {
+    background: rgba(255, 0, 100, 1);
+}
+
+#top {
+    position: relative;
+    margin: 20px auto;
+    /*ancho*/
+    width: 1000px;
+    /*alto*/
+    height: 192px;
+    /*background: #888;*/
+}
+
+/*seleccion atraves de ruta*/
+#top ul {
+    width: 1010px;
+    /*altura*/
+    height: 192px;
+    /*background: rgba(255, 0, 0, .5);*/
+}
+
+/*seleccion atraves de ruta*/
+#top ul li {
+    /*por tratarse de un listado en vertical tenemos que ponerlo en horizontal de izq a derech*/
+    float: left;
+    /*ancho*/
+    width: 332px;
+    /*altura*/
+    height: 192px;
+    /*espacios*/
+    margin-right: 2px;
+    /* background: rgba(117, 70, 145, 0.904);*/
+    /*todo lo que este dentro de los items, cajas, img, etc se centrarán*/
+    text-align: center;
+}
+
+/*cogemos todas las imagenes que esten en los items*/
+#top ul li img {
+    border-radius: 160%;
+    /*alto*/
+    height: 100px;
+}
+
+#top ul li h2 {
+    font-family: 'Metal Mania', cursive;
+}
+
+#top ul li p {
+    font-size: 14px;
+    /*margen por todos los lados*/
+    margin: 10px;
+}
+
+section {
+    position: relative;
+    margin: auto;
+    /*ancho*/
+    width: 1000px;
+    /*alto*/
+    height: 358px;
+    /*background: #aaa;*/
+}
+
+/*otra forma de llamar a una caja==> el nombre de la etiqueta seguido un # y del id*/
+aside#izquierda {
+    position: absolute;
+    /*lado izquierdo*/
+    left: 0;
+    top: 0;
+    /*ancho*/
+    width: 200px;
+    /*alto*/
+    height: 453px;
+    /*background: rgb(16, 99, 138);*/
+}
+
+aside#izquierda h1 {
+    /*ancho*/
+    width: 200px;
+    /*alto*/
+    height: 50px;
+    /*lineal vertical*/
+    line-height: 50px;
+    /*centrado*/
+    text-align: center;
+    background: rgb(101, 14, 112);
+    color: white;
+    /*para distancia de las cajas del form, margen inferior*/
+    margin-bottom: 5px;
+
+}
+
+aside#izquierda ul li {
+    /*NOTA: El css siempre tiene en cuenta el orden en las que se escriben las propiedades*/
+    background: #aaa;
+    /*margen interna, 10px para cada item*/
+    padding: 10px;
+    /*margen externa vertical-horizontal*/
+    margin: 2px 10px;
+    /*para poder visualizar el estilo de la lista(square=cuadrados)*/
+    list-style: square;
+    /*podemos decir que la lista tenga un estilo donde la posición de la lista sea interno*/
+    list-style-position: inside;
+    /*poner una imagen en los items de la lista*/
+    list-style-image: url(img/pin.png);
+}
+
+aside#izquierda ul li a {
+    /*le decimos que quite la linea que indica que es un vinculo en el iside izq.*/
+    text-decoration: none;
+}
+
+article {
+    position: absolute;
+    left: 200px;
+    top: 0;
+    /*la suma de las dos columnas laterales da 400 y en total la caja/section tiene 1000*/
+    /*ancho*/
+    width: 600px;
+    /*alto*/
+    height: 453px;
+    /*background: rgb(183, 137, 201);*/
+}
+
+article h1 {
+    font-family: 'Metal Mania', cursive;
+    font-size: 40px;
+    margin: 10px 20px;
+}
+
+article p img {
+    /*img posición flotante de izq a der*/
+    float: left;
+    margin-right: 20px;
+}
+
+article p {
+    margin: 4px 20px;
+    font-size: 14px;
+    text-align: justify;
+}
+
+
+/*otra forma de llamar a una caja==> el nombre de la etiqueta seguido un # y del id*/
+aside#derecha {
+    position: absolute;
+    /*lado derecho*/
+    right: 0;
+    top: 0;
+    /*ancho*/
+    width: 200px;
+    /*alto*/
+    height: 453px;
+    /*background: rgb(16, 99, 138);*/
+}
+
+aside#derecha h1 {
+    /*ancho titulo*/
+    width: 200px;
+    /*alto titulo*/
+    height: 50px;
+    /*para que sea ninel y vertical*/
+    line-height: 50px;
+    /*para que este centrado*/
+    text-align: center;
+    /*background: rgba(100, 0, 255, 1);*/
+    background: rgb(101, 14, 112);
+    color: white;
+    /*para distancia de las cajas del form, margen inferior*/
+    margin-bottom: 5px;
+}
+
+aside#derecha input {
+    /*margen interna*/
+    padding: 10px;
+    /*margen externa(5 vertigal-0 horizontal)*/
+    margin: 5px 0;
+    /*ancho*/
+    width: 179px;
+}
+
+/*llamamamos/seleccionamos mediante atributo*/
+aside#derecha input[type="text"] {
+    /*damos direccion de img*/
+    background: url(img/use.png);
+    /*para que la imagen no de repita*/
+    background-repeat: no-repeat;
+    /*la posicion de la imagen*/
+    background-position: right;
+    /*para que se acople a la caja*/
+    background-size: contain;
+}
+
+aside#derecha input[type="password"] {
+    /*damos direccion de img*/
+    background: url(img/pas.png);
+    /*para que la imagen no de repita*/
+    background-repeat: no-repeat;
+    /*la posicion de la imagen*/
+    background-position: right;
+    /*para que se acople a la caja*/
+    background-size: contain;
+}
+
+aside#derecha input[type="email"] {
+    /*damos direccion de img*/
+    background: url(img/email.jpg);
+    /*para que la imagen no de repita*/
+    background-repeat: no-repeat;
+    /*la posicion de la imagen*/
+    background-position: right;
+    /*para que se acople a la caja*/
+    background-size: contain;
+}
+
+aside#derecha input[type="submit"] {
+    /*ancho*/
+    width: 150px;
+    /*background: rgba(100, 0, 255, 1);*/
+    border: 3;
+    /*font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;*/
+    /*font-size: 17px;*/
+}
+
+footer {
+    position: relative;
+    margin: 20px auto;
+    width: 1000px;
+    height: 70px;
+    background: #888;
+    text-align: center;
+    line-height: 70px;
+    color: white;
+    background: rgb(101, 14, 112);
+
+}
+
+
+
+/*Margenes:
+si se usa position:relative ==> las margenes ya tienen un valor importante dentro de la maquetación
+opciones:
+margin:auto ==>sus margenes dan respuesta automatica en el flujo de nodos y se ubican en la parte central a nivel lateral y superior de la pantalla
+Las margenes se pueden ubicar de acuerdo a las 4 cordenas en que esta posicionada la página las cuales son: top(parte superior), right(parte derecha), 
+bottom(parte inferior), left(parte izquierda). Se puede colocar de la siguiente manera:
+margin:20px 30px 40px 50px  --- si se usa solo dos valores solo se hablaria de margenes a nivel vertical y horizontal ==>ejem margin:20px auto-- 
+ejem cuando se usa un solo valor se esta indicando que se aplique la medida para los 4 lados
+otras opciones: margin-left:20px -- margin-top:20px==>margen superior<-- */
