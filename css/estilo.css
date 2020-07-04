@@ -1,409 +1,407 @@
- /*Tenemos que formatear las margenes externas que vienen por defecto en las hojas de 
-estilo, para esto se usa un selector universal==> * <--*/
+/*=========================================
+ESTILOS GLOBALES
+===========================================*/
 
-* {
-    /*dejamos margen externas en 0*/
-    margin: 0;
-    /*margenes internas en 0*/
-    padding: 0;
-    /*cuando se trabaja con listas el css las pone con un estilo predeterminado, también se le quita*/
+*{
+    /*quitamos margenes externas que vienen por defecto*/
+    margin: 0px;
+    /*quitamos margenes internas que vienen por defecto*/
+    padding: 0px;
+    /*quitamos el estilo de lista que viene por defecto */
     list-style: none;
-    /*que todas las cajas tengan una familia fuente*/
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
+    /*quitamos la decoración del texto que viene por defecto*/
+    text-decoration: none;
+    /*asignamos una fuente global (toda la página)*/
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /*box-sizing=>tamaño de caja*/
+    /*esto asegura que el relleno y el borde estan incluidos en el ancho y altura total de los elementos*/
+    box-sizing: border-box;
 }
 
-
-#chat {
-    /* valor fixed permite tomar una caja y pegarla a la pantalla*/
-    position: fixed;
-    /*ancho*/
-    width: 240px;
-    /*alto*/
-    height: 40px;
-    /*abajo:posición de la caja en horizontal, siendo 0 la parte derecha inferior*/
-    bottom: 0;
-    background: rgba(27, 133, 133, 0.911);
-    /*posición de la caja en vertical, siendo 0 la parte izquierda superior*/
-    right: 17px;
-    /*NOTA: Por defecto todas las cajas vienen en el indice 0. Por ejemplo cuando navegamos un sitio web 
-    en el navegador Firefox siempre y cuando en este navegador abra el inspector de elementos y 
-    active la propiedad vista 3D, esta vista 3D permite ver la posición de las cajas
-    en su profundida, en su índice Z mientras las cajas están en el índice cero.
-    Ahora yo cómo hago para sacar una caja del índice cero a un índice superior.
-    Simplemente agregamos el valor 1 o el valor 2 o el valor 3 o el valor que quiera.
-    Al actualizar ya veremos que la caja esta por encima del footer dependiendo del valor dado*/
-    /*propiedad que permite manipular las cajas en ejes de profundidad (en terminos simples es como extraer un texto al frente de 
-    algun otro elemento en un word). cuando el valor esta en positivo indica que se sobrepondra a otros*/
-    z-index: 1;
-    /*color de texto*/
-    color: white;
-    /*alinear el texto al centro*/
-    text-align: center;
-    /*alinear el texto verticalmente 40 de acuerdo a la altura de la caja*/
-    line-height: 40px;
-    /*fuente de google*/
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    /*tamaño de fuente*/
-    font-size: 20px;
-    /*borde solo en las esquinas superiores(en la esq superior izq y derecha)*/
-    border-radius: 20px 20px 0 0;
-    /*cursor propiedad para indicar al usuario que se trata de un boton y con el valor pointer cambiamos el cursor por una manito xd*/
-    cursor: pointer;
-}
-
-header {
-    /*para centrar la caja principal se debe dar una ubicación*/
-    /*para las cajas principales se utiliza position: relative*/
+/*creamos una clase*/
+.contenedor{
+    /*posición relativa*/
     position: relative;
-    margin: 20px auto;
-    /*para centrar*/
-    /*cuando se trabaja en position: relative las margenes se organizan en dos coordenadas ==>margin: top left;
-margin: 0 0;*/
-    /*ancho*/
-    width: 1000px;
-    /*alto*/
-    height: 120px;
-    /*color*/
-    /*background: #444;*/
-}
-
-/*la position para las cajas internas es absolute ya que esta permite ubicar una caja interna dentro
-de una caja principal y permite manejar todas las coordenadas */
-/*seleccion a traves de id*/
-#logo {
-    position: absolute;
-    top: 30px;
-    left: 30px;
-    bottom: 0;
-    right: 0;
-    width: 200px;
-    height: 60px;
-    /*background: #ccc;*/
-    font-family: 'Metal Mania', cursive;
-    /*tamaño*/
-    font-size: 40px;
-    /*ubicación*/
-    text-align: center;
-    /*para alinearlo a nivel vertical, se alinea a la altura de la caja y ubica el
-     texto a la mitad del valor asignado */
-    line-height: 60px;
-
-}
-
-/*seleccion a traves de clase*/
-.redes {
-    position: absolute;
-    width: 42px;
-    height: 42px;
-    background: rgb(112, 13, 143);
-    border-radius: 100%;
-    /*propiedades de texto*/
-    text-align: center;
-    line-height: 42px;
-    /*color del texto*/
-    color: white;
-
-}
-
-/*seleccion a traves de id*/
-#icono1 {
-    background: blue;
-    top: 42px;
-    right: 120px;
-}
-
-#icono2 {
-    background: red;
-    top: 42px;
-    right: 70px;
-}
-
-#icono3 {
-    background: green;
-    top: 42px;
-    right: 19px;
-    
-}
-
-nav {
-    position: relative;
+    /*margen automatica (para que se pueda centrar)*/
     margin: auto;
-    width: 1000px;
-    height: 48px;
-    background: #aaa;
+    /*ancho*/
+    width: 100%;
+    /*alto*/
+    height: auto;
+}
+.fila{
+    position: relative;
+    /*margen interna*/
+    margin: auto;
+    /*ancho*/
+    width: 100%;
+    /*alto*/
+    height: auto; 
+   /*esta propiedad hace que se respete solo los elementos flotantes que esten dentro de esa fila. Hace una limpieza 
+    y deja solo a las clases flotantes correspondientes a esa fila. el espacio que no se lleno se respeta en cada fila*/
+    clear: both;
+    /*NOTA:propiedad de visualización display: table(esto permitira que se respete el área que esta generando las cajas flotantes*/
+    display: table;
+}
+/*con esta seleccion podemos decir que todas las clases que inicien con la palabra col-  tendran las siguientes 
+propiedades: ya que las comparten
+*/
+[class*="col-"]{
+    /*flotar las cajas de izquierda a derecha*/
+    float: left;
+    /*borde(grosor)-tipo-color*/
+    /*border: 2px solid black;*/
+    /*margen interna*/
+    padding: 10px;
+} 
+
+/*=========================================
+        SECCION 1 Cabezote
+===========================================*/
+header #logo{
+    /*fuente de google*/
+    font-family: 'Notable', cursive;
+    /*tamaño de fuente*/
+    font-size: 30px;
+    /*alineamos el texto al centro*/
+    text-align: center;
+    /*altura a nivel vertical*/
+    line-height: 50px;
+}
+/*redes sociales*/
+header center p{
+    /*alineamos al centro el texto que esta dentro del parrafo*/
+    text-align: center;
+    /*ancho*/
+    width: 40px;
+    /*alto*/
+    line-height: 42px;
+    /*para que este completamente redondo*/
+    border-radius: 100%;
+    /*color fondo*/
+    background: royalblue;
+    /*color de fuente*/
+    color: white;
+
+}
+/*si queremos personalizar más cada icono lo llamamos por su id*/
+header center#icono1 p{
+    background: rgb(29, 58, 146);
+}
+header center#icono2 p{
+    background: rgb(35, 58, 65); 
+}
+header center#icono3 p{
+    background: rgb(25, 121, 199);
 }
 
-/*seleccion a traves de clase*/
-.botones {
-    /*hace flotar el listado. lo hacemos iniciar de izquierda a derecha left*/
-    float: left;
-    width: 196px;
-    /*ancho*/
-    margin: 0px 2px;
-    height: 48px;
-    /*alto*/
-    background: rgb(101, 14, 112);
-    /*propiedades de texto*/
-    font-family: 'Metal Mania', cursive;
-    color: white;
+
+/*=========================================
+SECCION 2  barra de navegación
+===========================================*/
+
+nav ul li{
+    /*margen interno*/
+    padding: 10px;
+    /*centramos el contenido de las botones(texto)*/
     text-align: center;
+}
+
+nav ul li a{
+    /*visualización en bloque*/
+    display: block;
+    /*color del fondo*/
+    background: rgb(25, 121, 199);
+    /*fuente*/
+    font-family: 'Notable', cursive;
+    /*color de fuente*/
+    color: white;
+    /*altura a nivel vertical*/
     line-height: 48px;
 }
-
-/*llamamos al hover (es una seudoclase, cuando se pase el mouse por encima del botón pase algo) */
-/*que el botón cambie de color cuando se pasa el mouse por encima*/
-a .botones:hover {
-    background: rgba(160, 0, 255, .4);
+/*:hover -> cambia de color cuando pasamos el mouse por encima*/
+nav ul li a:hover{
+    background: rgb(63, 159, 238);
+}
+/*:active-> cambia de color cuando damos clic sobre el boton*/
+nav ul li a:active{
+    background: rgb(11, 139, 49);
 }
 
-/*que el botón cambie de color cuando se le de click*/
-a .botones:active {
-    background: rgba(255, 0, 100, 1);
+
+/*=========================================
+SECCION 3
+===========================================*/
+
+#seccion3 center{
+    /*margen interno*/
+    padding: 20px;
 }
 
-#top {
-    position: relative;
-    margin: 20px auto;
-    /*ancho*/
-    width: 1000px;
-    /*alto*/
-    height: 192px;
-    /*background: #888;*/
-}
-
-/*seleccion atraves de ruta*/
-#top ul {
-    width: 1010px;
-    /*altura*/
-    height: 192px;
-    /*background: rgba(255, 0, 0, .5);*/
-}
-
-/*seleccion atraves de ruta*/
-#top ul li {
-    /*por tratarse de un listado en vertical tenemos que ponerlo en horizontal de izq a derech*/
-    float: left;
-    /*ancho*/
-    width: 332px;
-    /*altura*/
-    height: 192px;
-    /*espacios*/
-    margin-right: 2px;
-    /* background: rgba(117, 70, 145, 0.904);*/
-    /*todo lo que este dentro de los items, cajas, img, etc se centrarán*/
-    text-align: center;
-}
-
-/*cogemos todas las imagenes que esten en los items*/
-#top ul li img {
-    border-radius: 160%;
-    /*alto*/
-    height: 100px;
-}
-
-#top ul li h2 {
-    font-family: 'Metal Mania', cursive;
-}
-
-#top ul li p {
-    font-size: 14px;
-    /*margen por todos los lados*/
-    margin: 10px;
-}
-
-section {
-    position: relative;
-    margin: auto;
-    /*ancho*/
-    width: 1000px;
-    /*alto*/
-    height: 358px;
-    /*background: #aaa;*/
-}
-
-/*otra forma de llamar a una caja==> el nombre de la etiqueta seguido un # y del id*/
-aside#izquierda {
-    position: absolute;
-    /*lado izquierdo*/
-    left: 0;
-    top: 0;
-    /*ancho*/
+#seccion3 img{
+    border-radius: 100%;
     width: 200px;
-    /*alto*/
-    height: 453px;
-    /*background: rgb(16, 99, 138);*/
-}
-
-aside#izquierda h1 {
-    /*ancho*/
-    width: 200px;
-    /*alto*/
-    height: 50px;
-    /*lineal vertical*/
-    line-height: 50px;
-    /*centrado*/
-    text-align: center;
-    background: rgb(101, 14, 112);
-    color: white;
-    /*para distancia de las cajas del form, margen inferior*/
-    margin-bottom: 5px;
-
-}
-
-aside#izquierda ul li {
-    /*NOTA: El css siempre tiene en cuenta el orden en las que se escriben las propiedades*/
-    background: #aaa;
-    /*margen interna, 10px para cada item*/
+    height: 200px;
     padding: 10px;
-    /*margen externa vertical-horizontal*/
+}
+
+#seccion3 h1{
+    font-family: 'Notable', cursive;
+    font-size: 20px;
+    padding: 10px;
+}
+
+#seccion3 p{
+    padding: 10px;
+}
+
+
+/*=========================================
+SECCION 4  
+===========================================*/
+
+#seccion4 aside#izq h1{
+    line-height: 50px;
+    text-align: center;
+    background: rgb(25, 121, 199);
+    color: white;
+    margin-bottom: 5px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow';
+    /*font-size: 30px;*/
+}
+
+#seccion4 aside ul li{
+    background: darkcyan;
+    /*margen interna*/
+    padding: 10px;
+    /*margen externa 2 horizontal 10 vertical*/
     margin: 2px 10px;
-    /*para poder visualizar el estilo de la lista(square=cuadrados)*/
+    /*estilo de item cuadrado*/
     list-style: square;
-    /*podemos decir que la lista tenga un estilo donde la posición de la lista sea interno*/
+    /*posicion de item adentro*/
     list-style-position: inside;
-    /*poner una imagen en los items de la lista*/
-    list-style-image: url(img/pin.png);
+    /*damos ruta del item(como la imagen no esta al lado del css si no en una carpeta aparte, empezamos con .. )*/
+    list-style-image: url(../img/pin.png);
 }
 
-aside#izquierda ul li a {
-    /*le decimos que quite la linea que indica que es un vinculo en el iside izq.*/
-    text-decoration: none;
-}
-
-article {
-    position: absolute;
-    left: 200px;
-    top: 0;
-    /*la suma de las dos columnas laterales da 400 y en total la caja/section tiene 1000*/
-    /*ancho*/
-    width: 600px;
-    /*alto*/
-    height: 453px;
-    /*background: rgb(183, 137, 201);*/
-}
-
-article h1 {
-    font-family: 'Metal Mania', cursive;
+#seccion4 article h1{
+    font-family:'Notable', cursive;
     font-size: 40px;
-    margin: 10px 20px;
+    margin: 20px;
 }
 
-article p img {
-    /*img posición flotante de izq a der*/
+/*#seccion4 article h3{
+    font-size: 30px;
+    margin: 15px;
+}*/
+
+#seccion4 article p img{
     float: left;
     margin-right: 20px;
 }
 
-article p {
-    margin: 4px 20px;
+#seccion4 article p{
+    margin: 5px 20px;
     font-size: 14px;
     text-align: justify;
 }
 
-
-/*otra forma de llamar a una caja==> el nombre de la etiqueta seguido un # y del id*/
-aside#derecha {
-    position: absolute;
-    /*lado derecho*/
-    right: 0;
-    top: 0;
-    /*ancho*/
-    width: 200px;
-    /*alto*/
-    height: 453px;
-    /*background: rgb(16, 99, 138);*/
-}
-
-aside#derecha h1 {
-    /*ancho titulo*/
-    width: 200px;
-    /*alto titulo*/
-    height: 50px;
-    /*para que sea ninel y vertical*/
+#seccion4 aside#der h1{
     line-height: 50px;
-    /*para que este centrado*/
     text-align: center;
-    /*background: rgba(100, 0, 255, 1);*/
-    background: rgb(101, 14, 112);
+    background: rgb(25, 121, 199);
     color: white;
-    /*para distancia de las cajas del form, margen inferior*/
     margin-bottom: 5px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow';
+    font-size: 20px;
 }
 
-aside#derecha input {
-    /*margen interna*/
+#seccion4 aside#der input{
+    width: 100%;
     padding: 10px;
-    /*margen externa(5 vertigal-0 horizontal)*/
     margin: 5px 0;
-    /*ancho*/
-    width: 179px;
 }
 
-/*llamamamos/seleccionamos mediante atributo*/
-aside#derecha input[type="text"] {
-    /*damos direccion de img*/
-    background: url(img/use.png);
-    /*para que la imagen no de repita*/
+#seccion4 aside#der input[type="text"]{
+    background: url(../img/usser.png);
     background-repeat: no-repeat;
-    /*la posicion de la imagen*/
     background-position: right;
-    /*para que se acople a la caja*/
     background-size: contain;
 }
 
-aside#derecha input[type="password"] {
-    /*damos direccion de img*/
-    background: url(img/pas.png);
-    /*para que la imagen no de repita*/
+#seccion4 aside#der input[type="password"]{
+    background: url(../img/passs.png);
     background-repeat: no-repeat;
-    /*la posicion de la imagen*/
     background-position: right;
-    /*para que se acople a la caja*/
     background-size: contain;
 }
 
-aside#derecha input[type="email"] {
-    /*damos direccion de img*/
-    background: url(img/email.jpg);
-    /*para que la imagen no de repita*/
+#seccion4 aside#der input[type="email"]{
+    background: url(../img/gmail.png);
     background-repeat: no-repeat;
-    /*la posicion de la imagen*/
     background-position: right;
-    /*para que se acople a la caja*/
     background-size: contain;
 }
 
-aside#derecha input[type="submit"] {
-    /*ancho*/
-    width: 150px;
-    /*background: rgba(100, 0, 255, 1);*/
-    border: 3;
-    /*font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;*/
-    /*font-size: 17px;*/
+#seccion4 aside#der input[type="submit"]{
+    background: rgba(100, 0, 100, .5);
+    border: 0;
 }
 
-footer {
-    position: relative;
-    margin: 20px auto;
-    width: 1000px;
-    height: 70px;
-    background: #888;
+/*=========================================
+SECCION 5  
+===========================================*/
+
+footer{
+    /*margen interna a20 a nivel vertical y 10 a nivel horizontal*/
+    padding: 20px 10px;
+}
+
+footer div{
+    background: rgba(100, 0, 255, 1);
+    /**/
     text-align: center;
-    line-height: 70px;
+    /*altura*/
+    line-height: 50px;
     color: white;
-    background: rgb(101, 14, 112);
-
 }
 
+/*================================================
+PANTALLA DE ESCRITORIO GRANDE--LARGE (lg)
+(para pruebas la medida a usar recomendada es de 1366(ordenador))
+==================================================*/
+/*Primer punto de quiebre: cuando estemos viendo una pág. web con un min de ancho de pantalla 1200px*/
+@media(min-width:1200px){
 
+   .col-lg-12{ width: 100%;}
 
-/*Margenes:
-si se usa position:relative ==> las margenes ya tienen un valor importante dentro de la maquetación
-opciones:
-margin:auto ==>sus margenes dan respuesta automatica en el flujo de nodos y se ubican en la parte central a nivel lateral y superior de la pantalla
-Las margenes se pueden ubicar de acuerdo a las 4 cordenas en que esta posicionada la página las cuales son: top(parte superior), right(parte derecha), 
-bottom(parte inferior), left(parte izquierda). Se puede colocar de la siguiente manera:
-margin:20px 30px 40px 50px  --- si se usa solo dos valores solo se hablaria de margenes a nivel vertical y horizontal ==>ejem margin:20px auto-- 
-ejem cuando se usa un solo valor se esta indicando que se aplique la medida para los 4 lados
-otras opciones: margin-left:20px -- margin-top:20px==>margen superior<-- */
+   .col-lg-9{ width: 75%;}
+   /*ancho|| es recomendable usar 8 decimales*/
+   .col-lg-8{ width: 66.66666667%;}
+
+   .col-lg-7{ width: 58.33333333%;}
+
+   .col-lg-6{ width: 50%;}
+
+   .col-lg-5{ width: 41.66666667%;}
+
+   .col-lg-4{ width: 33.33333333%;}
+
+   .col-lg-3{ width: 25%;}
+
+   .col-lg-2{ width: 16.66666667%;}
+
+   .col-lg-1{ width: 8.33333333%;}
+   /*para ocultar la caja cuando sea innecesaria*/
+   .col-lg-0{ display: none;}
+
+   #seccion4 article p img{
+    width: 50%;
+}
+}
+
+/*=================================================
+PANTALLA DE ESCRITORIO MEDIANO--MEDIUM (md)
+(para pruebas la medida a usar recomendada es de 1024(tablet horizontal))
+===================================================*/
+/*Segundo punto de quiebre: cuando estemos viendo una pág. web con rango de pantalla de 
+entre max 1199px (el numero anterior a 1200) y min 992px */
+@media(max-width:1199px) and (min-width: 992px){
+
+    .col-md-12{ width: 100%;}
+    
+    .col-md-9{ width: 75%;}
+    /*ancho|| es recomendable usar 8 decimales*/
+    .col-md-8{ width: 66.66666667%;}
+    
+    .col-md-7{ width: 58.33333333%;}
+    
+    .col-md-6{ width: 50%;}
+    
+    .col-md-5{ width: 41.66666667%;}
+    
+    .col-md-4{ width: 33.33333333%;}
+    
+    .col-md-3{ width: 25%;}
+    
+    .col-md-2{ width: 16.66666667%;}
+    
+    .col-md-1{ width: 8.33333333%;}
+    /*para ocultar la caja cuando sea innecesaria*/
+    .col-md-0{ display: none;}
+
+    #seccion4 article p img{
+        width: 60%;
+    }
+}
+
+/*==================================================
+PANTALLA DE TABLETS(pequeño)--SMALL (sm)
+(para pruebas la medida a usar recomendada es de 768(tablet vertical))
+====================================================*/
+/*Tercer punto de quiebre: cuando estemos viendo una pág. web con rango de pantalla de 
+entre max 991px (el numero anterior a 992) y min 768px*/
+@media(max-width: 991px) and (min-width: 768px){
+
+    .col-sm-12{ width: 100%;}
+ 
+    .col-sm-9{ width: 75%;}
+    /*ancho|| es recomendable usar 8 decimales*/
+    .col-sm-8{ width: 66.66666667%;}
+ 
+    .col-sm-7{ width: 58.33333333%;}
+ 
+    .col-sm-6{ width: 50%;}
+ 
+    .col-sm-5{ width: 41.66666667%;}
+ 
+    .col-sm-4{ width: 33.33333333%;}
+ 
+    .col-sm-3{ width: 25%;}
+ 
+    .col-sm-2{ width: 16.66666667%;}
+ 
+    .col-sm-1{ width: 8.33333333%;}
+    /*para ocultar la caja cuando sea innecesaria*/
+    .col-sm-0{ display: none;}
+
+    #seccion4 article p img{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+ }
+
+ /*====================================================================
+PANTALLA DE PHONES(moviles)--EXTRA PEQUEÑO--EXTRA SMALL (xs)
+(para pruebas la medida a usar recomendada es de 320)
+=======================================================================*/
+/*Cuarto punto de quiebre: cuando estemos viendo una pág. web con un max de ancho de pantalla 767px*/
+@media(max-width: 767px) {
+
+    .col-xs-12{ width: 100%;}
+ 
+    .col-xs-9{ width: 75%;}
+    /*ancho|| es recomendable usar 8 decimales*/
+    .col-xs-8{ width: 66.66666667%;}
+ 
+    .col-xs-7{ width: 58.33333333%;}
+ 
+    .col-xs-6{ width: 50%;}
+ 
+    .col-xs-5{ width: 41.66666667%;}
+ 
+    .col-xs-4{ width: 33.33333333%;}
+ 
+    .col-xs-3{ width: 25%;}
+ 
+    .col-xs-2{ width: 16.66666667%;}
+ 
+    .col-xs-1{ width: 8.33333333%;}
+    /*para ocultar la caja cuando sea innecesaria*/
+    .col-xs-0{ display: none;}
+
+    #seccion4 article p img{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+ }
